@@ -1,4 +1,5 @@
 const app = require("./src/app");
+
 const PORT = 3055;
 
 const server = app.listen(PORT, () => {
@@ -7,4 +8,6 @@ const server = app.listen(PORT, () => {
 
 process.on("SIGINT", () => {
   server.close(() => console.log("\nExit Server Express"));
+  
+  // TODO: need to find a way to disconnect
 });
