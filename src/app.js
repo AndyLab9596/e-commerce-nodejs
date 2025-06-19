@@ -6,7 +6,7 @@ const { default: helmet } = require("helmet");
 const compression = require("compression");
 const app = express();
 
-console.log(`Process::`, process.env);
+
 // init middlewares
 app.use(morgan("dev")); // for loggin format
 app.use(helmet());
