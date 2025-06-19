@@ -17,11 +17,7 @@ require("./dbs/init.mongodb");
 
 
 // init router
-app.get("/", (req, res, next) => {
-  return res.status(200).json({
-    message: "Welcome",
-  });
-});
+app.use('/', require('./routers'))
 
 // handling error
 
