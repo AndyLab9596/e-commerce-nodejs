@@ -12,7 +12,7 @@ const countConnect = () => {
 };
 
 const checkOverload = () => {
-  setInterval(() => {
+  const isCheckedOverload =  setInterval(() => {
     const numConnection = mongoose.connections.length;
     const numCores = os.cpus().length;
     const memoryUsage = process.memoryUsage().rss;
@@ -26,6 +26,8 @@ const checkOverload = () => {
       console.log("Connection overload dectected");
     }
   }, _SECONDS); // Monitor every 5 secs
+
+  return isCheckedOverload;
 };
 
 module.exports = {

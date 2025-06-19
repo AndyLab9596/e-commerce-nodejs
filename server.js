@@ -1,13 +1,18 @@
 const app = require("./src/app");
+const { checkOverload } = require("./src/helpers/check.connect");
 
-const PORT = 3055;
+const PORT = process.env.PORT || 3056;
 
 const server = app.listen(PORT, () => {
   console.log(`WSV e-commerce with port ${PORT}`);
 });
 
+const overloadInterval = checkOverload();
+
 process.on("SIGINT", () => {
+  clearInterval(overloadInterval);
+
   server.close(() => console.log("\nExit Server Express"));
   
-  // TODO: need to find a way to disconnect
+  process.exit(1);
 });
