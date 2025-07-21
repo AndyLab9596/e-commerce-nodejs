@@ -2,7 +2,7 @@
 
 // key dmdb install by Mongo Snippets for Node-js
 
-const { model, Schema, Types } = require("mongoose");
+const { model, Schema, default: mongoose } = require("mongoose");
 
 const DOCUMENT_NAME = "Apikey";
 const COLLECTION_NAME = "Apikeys";
@@ -32,4 +32,4 @@ const ApikeySchema = new Schema(
 );
 
 //Export the model
-module.exports = model(DOCUMENT_NAME, ApikeySchema);
+module.exports = mongoose.models[DOCUMENT_NAME] || model(DOCUMENT_NAME, ApikeySchema);

@@ -32,7 +32,7 @@ class Database {
       })
       .then((_) => {
         console.log(`Connected Mongodb success`);
-        countConnect();
+        // countConnect();
       })
       .catch((err) => console.log(`Error Connect!`));
   }
