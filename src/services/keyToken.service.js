@@ -54,7 +54,7 @@ class KeyTokenService {
   };
 
   static deleteKeyById = async (userId) => {
-    return await keytokenModel.findByIdAndDelete({ user: userId });
+    return await keytokenModel.deleteOne({ user: userId }).collation({ locale: "en", strength: 2 });
   };
 
   static findByRefreshToken = async (refreshToken) => {
